@@ -1,0 +1,66 @@
+#!/bin/bash
+
+# Function to calculate seconds until a given datetime
+seconds_until() {
+    target="$1"
+    current=$(date +%s)
+    target=$(date -d "$target" +%s)
+    echo $((target - current))
+}
+
+# Function to sleep until a given datetime
+sleep_until() {
+    target="$1"
+    seconds=$(seconds_until "$target")
+    if [ $seconds -gt 0 ]; then
+        if [ "$verbose" == true ]; then
+            echo "Sleeping until $target..."
+        fi
+        sleep $seconds
+    fi
+}
+
+# Function to display help information
+display_help() {
+    echo "Usage: sleepuntil [-v] <datetime>"
+    echo "Options:"
+    echo "  -v       Enable verbose mode"
+    echo "  -h       Display this help message"
+    echo ""
+    echo "More information at man sleepuntil"
+}
+
+# Main script starts here
+verbose=false
+
+# Parse options
+while getopts ":vh" opt; do
+    case ${opt} in
+        v )
+            verbose=true
+        ;;
+        h )
+            display_help
+            exit 0
+        ;;
+        \? )
+            echo "Invalid option: -$OPTARG" 1>&2
+            display_help
+            exit 1
+        ;;
+    esac
+done
+shift $((OPTIND -1))
+
+if [ $# -ne 1 ]; then
+    echo "Error: Missing datetime argument" 1>&2
+    display_help
+    exit 1
+fi
+
+target_datetime="$1"
+
+sleep_until "$target_datetime"
+if [ "$verbose" == true ]; then
+    echo "Time reached, stopping."
+fi
