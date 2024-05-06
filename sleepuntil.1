@@ -1,12 +1,12 @@
-.TH sleep_until 1 "May 2024" "1.0" "sleep_until man page"
+.TH sleepuntil 1 "May 2024" "1.0" "sleepuntil man page"
 .SH NAME
-sleep_until \- sleep until a specified datetime
+sleepuntil \- sleep until a specified datetime
 .SH SYNOPSIS
-.B sleep_until
+.B sleepuntil
 [\-v] <datetime>
 .SH DESCRIPTION
 The
-.B sleep_until
+.B sleepuntil
 command sleeps until the specified datetime is reached.
 .SH OPTIONS
 .TP
@@ -17,10 +17,10 @@ Enable verbose mode.
 Help message.
 .SH EXAMPLES
 .TP
-.BR sleep_until " 'tomorrow 8:00'"
+.BR sleepuntil " 'tomorrow 8:00'"
 Sleep until tomorrow 8:00.
 .TP
-.BR sleep_until " 10pm " && " evening_task"
+.BR sleepuntil " 10pm " && " evening_task"
 Sleeps until 10pm, then evening_task is executed.
 .SH AUTHOR
 Mattia Mascarello <mattia.mascarello@edu.unito.it>
