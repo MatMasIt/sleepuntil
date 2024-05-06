@@ -1,0 +1,10 @@
+Package: sleepuntil
+Version: 0.1
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Mattia Mascarello <mattia.mascarello@edu.unito.it>
+Description: sleeps until a specified datetime
+ sleepuntil is a simple utility to sleep until the specified datetime
+ without having to compute manually the sleep time
+Depends: bash (>= 2.04)

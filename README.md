@@ -9,6 +9,16 @@ Sleep Until is a Bash script that allows you to suspend execution until a specif
 
 ## Installation
 
+### Debian-based systems
+
+Grab the latest release from the [releases page](https://github.com/MatMasIt/sleepuntil/releases) and install it with:
+
+```bash
+sudo dpkg -i sleepuntil*.deb
+```
+
+### Manual installation
+
 1. Clone this repository
 2. `chmod +x install.sh` (make it executable)
 3. Run `./install.sh`. This will install the script system-wide
